@@ -42,8 +42,17 @@
             text-align: center;
         }
 
-        .hero::before {
-            content: "";
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .video-fallback {
             position: absolute;
             top: 0;
             left: 0;
@@ -52,7 +61,16 @@
             background-image: url('https://amermahsoub.me/images/intro-bg.jpg');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.7);
+            z-index: -3;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for better text visibility */
             z-index: -1;
         }
 
@@ -367,8 +385,15 @@
 </head>
 <body>
     <section class="hero">
+        <!-- Replace with your chosen video URL -->
+        <video autoplay muted loop id="bg-video">
+            <source src="images/video_hero.mp4" type="video/mp4">
+        </video>
+        <!-- Fallback image if video doesn't load -->
+        <div class="video-fallback"></div>
+        <div class="overlay"></div>
         <div class="hero-content">
-            <h1>Amer Elsayed Mahsoub</h1>
+            <h1>Amer Mahsoub</h1>
             <h2>Senior Android Engineer</h2>
             <div class="hero-buttons">
                 <a href="#about" class="hero-btn primary-btn">About Me</a>
