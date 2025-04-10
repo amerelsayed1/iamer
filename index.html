@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amer Elsayed Mahsoub | Senior Android Engineer</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --text-color: #1f2937;
+            --light-text: #6b7280;
+            --bg-color: #ffffff;
+            --accent-color: #f3f4f6;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://amermahsoub.me/images/intro-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .primary-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .secondary-btn {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--text-color);
+        }
+
+        .secondary-btn:hover {
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #6366f1;
+            text-decoration: underline;
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #9ca3af;
+        }
+
+        .profile-name {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            font-size: 1.25rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+
+        .profile-description {
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .social-links a:hover {
+            background-color: #e5e7eb;
+            text-decoration: none;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            color: var(--light-text);
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-title {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .experience-company {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .experience-date {
+            color: var(--light-text);
+            font-size: 0.875rem;
+        }
+
+        .experience-description {
+            margin-top: 0.5rem;
+        }
+
+        .experience-location {
+            color: var(--light-text);
+            font-size: 0.875rem;
+        }
+
+        .responsibilities {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .responsibilities li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background-color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .languages-list {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .language-item {
+            margin-bottom: 1rem;
+        }
+
+        .language-name {
+            font-weight: 600;
+        }
+
+        .language-level {
+            color: var(--light-text);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            background-color: var(--accent-color);
+            text-align: center;
+            color: var(--light-text);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero h2 {
+                font-size: 1.25rem;
+            }
+
+            h1 {
+                font-size: 1.875rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Amer Elsayed Mahsoub</h1>
+            <h2>Senior Android Engineer</h2>
+            <div class="hero-buttons">
+                <a href="#about" class="hero-btn primary-btn">About Me</a>
+                <a href="#contact" class="hero-btn secondary-btn">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="profile">
+            <div class="profile-img">AM</div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/amermahsoub/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/amermahsoub" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+            <div class="contact-info">
+                <div>Cairo, Egypt</div>
+                <div>amer.mahsoub1@gmail.com</div>
+                <div>+201016943505</div>
+            </div>
+        </div>
+
+        <div id="about" class="section">
+            <h2 class="section-title">About</h2>
+            <p>
+                Passionate Android Engineer with over 7 years of experience in e-commerce, telecommunications, and transportation. Committed to continuous learning and leveraging emerging technologies to develop high-quality, scalable, and efficient solutions.
+            </p>
+            <p>
+                Specialized in Jetpack Compose migration, Kotlin, and modern Android development, with a strong focus on performance optimization, architecture, and security best practices. Adept at leading technical initiatives, refactoring legacy code, and implementing CI/CD pipelines to enhance development efficiency.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-company">Transflo</div>
+                        <div class="experience-title">Senior Android Engineer</div>
+                    </div>
+                    <div>
+                        <div class="experience-date">Oct 2023 – present</div>
+                        <div class="experience-location">Tampa, USA</div>
+                    </div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Led migration from XML to Jetpack Compose, improving UI development efficiency and maintainability.</li>
+                    <li>Refactored and modularized critical features, enhancing scalability and code reusability.</li>
+                    <li>Optimized app performance, reducing memory leaks and improving rendering efficiency.</li>
+                    <li>Implemented advanced security measures, including SSL pinning, anti-root detection, and Frida debugging prevention.</li>
+                    <li>Integrated Flutter SDK within the Android app, ensuring smooth interoperability.</li>
+                    <li>Automated CI/CD pipelines using GitHub Actions for testing and deployment.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-company">MakeOrder</div>
+                        <div class="experience-title">Senior Android Engineer</div>
+                    </div>
+                    <div>
+                        <div class="experience-date">Jan 2022 – Sep 2023</div>
+                        <div class="experience-location">Cairo, Egypt</div>
+                    </div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Developed and maintained features for a SaaS restaurant and retail management system.</li>
+                    <li>Led performance optimizations, significantly reducing memory usage and UI rendering times.</li>
+                    <li>Refactored legacy projects, improving maintainability and development experience.</li>
+                    <li>Implemented a CI/CD pipeline, reducing deployment time and enhancing development efficiency.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-company">Generic soft</div>
+                        <div class="experience-title">Flutter Engineer (Part-time, Remote)</div>
+                    </div>
+                    <div>
+                        <div class="experience-date">Nov 2022 – Mar 2023</div>
+                        <div class="experience-location">Bulgaria</div>
+                    </div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Developed new features for AddSpace, an on-demand personal storage service.</li>
+                    <li>Resolved major stability issues, significantly improving user experience.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-company">SEGMATEK</div>
+                        <div class="experience-title">Senior Android Engineer</div>
+                    </div>
+                    <div>
+                        <div class="experience-date">Jul 2020 – Dec 2021</div>
+                        <div class="experience-location">Cairo, Egypt</div>
+                    </div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Designed and built advanced Android applications.</li>
+                    <li>Collaborated with cross-functional teams to define, develop, and deploy new features.</li>
+                    <li>Integrated external data sources and APIs to improve application functionality.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-company">Spark Cloud</div>
+                        <div class="experience-title">Senior Android Engineer</div>
+                    </div>
+                    <div>
+                        <div class="experience-date">Oct 2019 – Jul 2020</div>
+                        <div class="experience-location">Mansoura, Egypt</div>
+                    </div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Main focus on e-commerce solutions serving a wide array of merchants.</li>
+                    <li>Refactored legacy applications to improve user experience and retention.</li>
+                    <li>Collaborated with the business team during the system analysis phase.</li>
+                    <li>Developed a training program for developers, fostering knowledge sharing and upskilling within the team.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-list">
+                    <div class="skill-item">Java</div>
+                    <div class="skill-item">Kotlin</div>
+                    <div class="skill-item">Dart</div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Frameworks & Development</h3>
+                <div class="skills-list">
+                    <div class="skill-item">Jetpack Compose</div>
+                    <div class="skill-item">Coroutines</div>
+                    <div class="skill-item">Android SDKs</div>
+                    <div class="skill-item">Jetpack components</div>
+                    <div class="skill-item">Modularization</div>
+                    <div class="skill-item">MVVM</div>
+                    <div class="skill-item">MVP</div>
+                    <div class="skill-item">MVI</div>
+                    <div class="skill-item">RESTful API</div>
+                    <div class="skill-item">Clean Code</div>
+                    <div class="skill-item">Automated Testing</div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>DevOps</h3>
+                <div class="skills-list">
+                    <div class="skill-item">GitHub Actions</div>
+                    <div class="skill-item">CircleCI</div>
+                    <div class="skill-item">Fastlane</div>
+                    <div class="skill-item">Jenkins</div>
+                    <div class="skill-item">Azure DevOps</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skills-list">
+                    <div class="skill-item">Gradle (Kotlin DSL)</div>
+                    <div class="skill-item">JIRA</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">Swagger</div>
+                    <div class="skill-item">Ktlint</div>
+                    <div class="skill-item">Detekt</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Bachelor of Science in Computer Science</div>
+                        <div class="experience-company">Mansoura University, Egypt</div>
+                    </div>
+                    <div class="experience-date">2012 – 2016</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="languages-list">
+                <div class="language-item">
+                    <div class="language-name">Arabic</div>
+                    <div class="language-level">Native</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                    <div class="language-level">Fluent</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="section">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="profile">
+                <div class="contact-info">
+                    <div>Email: <a href="mailto:amer.mahsoub1@gmail.com">amer.mahsoub1@gmail.com</a></div>
+                    <div>Phone: +201016943505</div>
+                    <div>Location: Cairo, Egypt</div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/amermahsoub/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/amermahsoub" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Amer Elsayed Mahsoub</p>
+        </div>
+    </footer>
+</body>
+</html>
