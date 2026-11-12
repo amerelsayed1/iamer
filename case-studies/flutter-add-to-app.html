@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter Add-to-App in a Native Android App | Amer Mahsoub</title>
+    <meta name="description" content="Case study: embedding Flutter features inside the native TRANSFLO Mobile+ Android app — channel design, deep-link routing, and offline action sync, without rewriting native flows.">
+    <meta name="author" content="Amer Mahsoub">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="canonical" href="https://amermahsoub.me/case-studies/flutter-add-to-app.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Amer Mahsoub">
+    <meta property="og:title" content="Shipping Flutter inside a native Android app — without a rewrite">
+    <meta property="og:description" content="Case study: Flutter add-to-app in TRANSFLO Mobile+ — channel design, deep-link routing, and offline action sync.">
+    <meta property="og:url" content="https://amermahsoub.me/case-studies/flutter-add-to-app.html">
+    <meta property="og:image" content="https://amermahsoub.me/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shipping Flutter inside a native Android app — without a rewrite">
+    <meta name="twitter:description" content="Case study: Flutter add-to-app in TRANSFLO Mobile+ — channel design, deep-link routing, and offline action sync.">
+    <meta name="twitter:image" content="https://amermahsoub.me/images/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Shipping Flutter inside a native Android app — without a rewrite",
+        "author": { "@type": "Person", "name": "Amer Mahsoub", "url": "https://amermahsoub.me/" },
+        "image": "https://amermahsoub.me/images/og-image.png",
+        "mainEntityOfPage": "https://amermahsoub.me/case-studies/flutter-add-to-app.html"
+    }
+    </script>
+
+    <script>
+        try {
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="site-nav" aria-label="Primary">
+        <div class="nav-inner">
+            <a class="nav-brand" href="../">Amer Mahsoub</a>
+            <ul class="nav-links">
+                <li><a href="../#work">Work</a></li>
+                <li><a href="../#experience">Experience</a></li>
+                <li><a href="../#skills">Skills</a></li>
+                <li><a href="../#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+                <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <header class="article-header">
+        <div class="inner">
+            <span class="case-kicker">Case study · TRANSFLO Mobile+</span>
+            <h1>Shipping Flutter inside a native Android app — without a rewrite</h1>
+            <p class="lede">How we brought Flutter features into a mature Kotlin codebase used by truck drivers across the US, while the native flows kept running untouched.</p>
+            <ul class="article-facts">
+                <li><strong>Role</strong>Senior Android Engineer — integration architect</li>
+                <li><strong>App</strong>TRANSFLO Mobile+ · 500K+ downloads</li>
+                <li><strong>Stack</strong>Kotlin, Flutter, MethodChannel, deep links</li>
+                <li><strong>Timeline</strong>2023 – Present</li>
+            </ul>
+        </div>
+    </header>
+
+    <main id="main" class="container article">
+        <!--
+            TODO (Amer): add real numbers wherever you have them, e.g.
+            - number of features / screens now delivered in Flutter
+            - crash-free users before / after, or release cadence change
+            - time-to-ship for a feature built once for both platforms
+        -->
+
+        <h2>The problem</h2>
+        <p>
+            TRANSFLO Mobile+ is the flagship B2B app for US truck drivers: document scanning, load management, ELD integration and trucking-optimized navigation. The Android app is a large, established Kotlin codebase that drivers rely on every day, so a full rewrite was not an option.
+        </p>
+        <p>
+            At the same time, the business wanted to deliver new features across platforms faster. The answer was <strong>Flutter add-to-app</strong>: build new features once in Flutter and embed them inside the existing native app, next to the screens that already worked.
+        </p>
+
+        <h2>Constraints</h2>
+        <ul>
+            <li><strong>No regressions in native flows.</strong> Scanning, load management and ELD had to keep working exactly as before.</li>
+            <li><strong>Drivers are often offline.</strong> Coverage on the road is patchy, so actions taken inside Flutter screens could not be lost when the network dropped.</li>
+            <li><strong>One navigation story.</strong> Users, push notifications and other apps needed to reach a screen without caring whether it was native or Flutter.</li>
+            <li><strong>Two runtimes, one source of truth.</strong> Native and Flutter code had to share state, such as scan results, without drifting out of sync.</li>
+        </ul>
+
+        <h2>Architecture</h2>
+        <figure class="diagram">
+            <svg viewBox="0 0 720 330" role="img" aria-labelledby="diag-title diag-desc">
+                <title id="diag-title">Flutter add-to-app architecture</title>
+                <desc id="diag-desc">The native Android app hosts a Flutter module. Deep links are routed to native or Flutter screens. MethodChannel bridges and a singleton scan-result channel connect the two, and an offline action queue syncs to the backend.</desc>
+                <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                        <path class="d-arrow" d="M0 0L10 5L0 10z"/>
+                    </marker>
+                </defs>
+
+                <!-- Deep link entry -->
+                <rect class="d-box" x="250" y="10" width="220" height="44" rx="8"/>
+                <text class="d-text" x="360" y="30" text-anchor="middle">Deep link</text>
+                <text class="d-muted" x="360" y="46" text-anchor="middle">transflomobileplus://…</text>
+                <path class="d-line" d="M360 54 V82" marker-end="url(#arrow)"/>
+
+                <!-- Router -->
+                <rect class="d-box-native" x="230" y="84" width="260" height="40" rx="8"/>
+                <text class="d-title" x="360" y="109" text-anchor="middle">Deep-link router</text>
+                <path class="d-line" d="M300 124 L170 160" marker-end="url(#arrow)"/>
+                <path class="d-line" d="M420 124 L550 160" marker-end="url(#arrow)"/>
+
+                <!-- Native side -->
+                <rect class="d-group" x="20" y="160" width="300" height="160" rx="12"/>
+                <text class="d-title" x="40" y="184">Native Android (Kotlin)</text>
+                <rect class="d-box-native" x="40" y="198" width="260" height="34" rx="6"/>
+                <text class="d-text" x="170" y="220" text-anchor="middle">Existing flows: scan · loads · ELD</text>
+                <rect class="d-box-native" x="40" y="240" width="260" height="34" rx="6"/>
+                <text class="d-text" x="170" y="262" text-anchor="middle">Scan-result channel (singleton)</text>
+                <rect class="d-box-native" x="40" y="282" width="260" height="30" rx="6"/>
+                <text class="d-text" x="170" y="302" text-anchor="middle">Offline action queue → sync</text>
+
+                <!-- Flutter side -->
+                <rect class="d-group" x="400" y="160" width="300" height="160" rx="12"/>
+                <text class="d-title" x="420" y="184">Embedded Flutter module</text>
+                <rect class="d-box" x="420" y="198" width="260" height="34" rx="6"/>
+                <text class="d-text" x="550" y="220" text-anchor="middle">New cross-platform features</text>
+                <rect class="d-box" x="420" y="240" width="260" height="34" rx="6"/>
+                <text class="d-text" x="550" y="262" text-anchor="middle">Platform bridge client</text>
+                <rect class="d-box" x="420" y="282" width="260" height="30" rx="6"/>
+                <text class="d-text" x="550" y="302" text-anchor="middle">Actions sent to native</text>
+
+                <!-- Bridges -->
+                <path class="d-line" d="M302 257 H418" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                <text class="d-muted" x="360" y="250" text-anchor="middle">MethodChannel</text>
+                <path class="d-line" d="M418 297 H302" marker-end="url(#arrow)"/>
+            </svg>
+            <figcaption>Native stays the host. Flutter features plug in through a small, explicit set of bridges.</figcaption>
+        </figure>
+
+        <h3>1. Native stays the host</h3>
+        <p>
+            The Android app stays in charge of startup, navigation and lifecycle. Flutter is added as a module and shown only where a feature is built in Flutter. Existing native flows don't change at all, which kept the risk of each release low.
+        </p>
+
+        <h3>2. MethodChannel bridges with a narrow contract</h3>
+        <p>
+            Native and Flutter code talk through <strong>MethodChannel</strong> bridges. Each bridge does one clear job instead of being a general-purpose pipe. That keeps the contract between the two runtimes small, easy to review and testable from both sides.
+        </p>
+
+        <h3>3. A singleton scan-result channel</h3>
+        <p>
+            Document scanning is native and central to the product, but Flutter features need its results too. A single <strong>singleton channel</strong> carries scan results between the two runtimes. That gives one source of truth for scan state and avoids duplicate listeners or results arriving twice when screens are re-created.
+        </p>
+
+        <h3>4. Deep-link routing across both worlds</h3>
+        <p>
+            All entry points go through the app's <code>transflomobileplus://</code> deep-link scheme. A single router decides whether a link opens a native screen or a Flutter route. Notifications, other apps and in-app navigation therefore never need to know which technology a screen uses, and a feature can move between native and Flutter without breaking its links.
+        </p>
+
+        <h3>5. Offline action synchronization</h3>
+        <p>
+            Drivers lose signal often. Actions started in Flutter screens are handed to the native side, which queues them and syncs them to the backend once the device is back online. That way drivers get the same offline guarantees whether a screen is native or Flutter.
+        </p>
+
+        <h2>Outcome</h2>
+        <ul>
+            <li>New features can be built in Flutter and shipped <strong>inside the existing app</strong>, with no rewrite of the native flows drivers depend on.</li>
+            <li>One deep-link and navigation model covers native and Flutter screens.</li>
+            <li>Offline behavior is the same across both runtimes, which matters for a workforce that is on the road.</li>
+            <li>A clear, small bridge contract that other engineers on the team can extend safely.</li>
+        </ul>
+
+        <div class="callout">
+            <p><strong>What I'd tell another team starting add-to-app:</strong> decide early which side owns navigation and offline state. Keep the channel contract small and explicit, because everything else is easier to change later.</p>
+        </div>
+
+        <h2>Related work on the same app</h2>
+        <ul>
+            <li>Split core flows into modules and moved the build to Gradle Kotlin DSL, with an internal AAR publishing pipeline to Azure DevOps Artifacts.</li>
+            <li>Hardened security against OWASP MASVS L2: SSL pinning, root and emulator detection, Frida anti-debugging.</li>
+            <li>Automated CI/CD across Azure DevOps and GitHub Actions with Fastlane.</li>
+        </ul>
+
+        <a class="back-link" href="../#work">← Back to selected work</a>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Amer Elsayed Mahsoub</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

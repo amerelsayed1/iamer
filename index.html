@@ -3,70 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amer Mahsoub | Senior Mobile Engineer — Android, Kotlin & Flutter</title>
+    <title>Amer Mahsoub | Senior Mobile Engineer — Android, Kotlin &amp; Flutter</title>
     <meta name="description" content="Senior Mobile Engineer with 7+ years building production Android apps in Kotlin, Jetpack Compose, and Flutter — across transportation, telecom, and e-commerce.">
-    <link rel="stylesheet" href="css/styles.css"/>
+    <meta name="author" content="Amer Mahsoub">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="canonical" href="https://amermahsoub.me/">
 
-    <!-- Favicon links -->
+    <!-- Open Graph / link previews -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Amer Mahsoub">
+    <meta property="og:title" content="Amer Mahsoub — Senior Mobile Engineer (Android, Kotlin & Flutter)">
+    <meta property="og:description" content="7+ years shipping production Android apps — Kotlin, Jetpack Compose, Flutter add-to-app, and mobile security hardening.">
+    <meta property="og:url" content="https://amermahsoub.me/">
+    <meta property="og:image" content="https://amermahsoub.me/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Amer Mahsoub — Senior Mobile Engineer">
+    <meta property="profile:first_name" content="Amer">
+    <meta property="profile:last_name" content="Mahsoub">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Amer Mahsoub — Senior Mobile Engineer (Android, Kotlin & Flutter)">
+    <meta name="twitter:description" content="7+ years shipping production Android apps — Kotlin, Jetpack Compose, Flutter add-to-app, and mobile security hardening.">
+    <meta name="twitter:image" content="https://amermahsoub.me/images/og-image.png">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Amer Mahsoub",
+        "alternateName": "Amer Elsayed Mahsoub",
+        "jobTitle": "Senior Mobile Engineer",
+        "url": "https://amermahsoub.me/",
+        "image": "https://amermahsoub.me/images/profile_pic.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cairo",
+            "addressCountry": "EG"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Mansoura University"
+        },
+        "knowsAbout": ["Android", "Kotlin", "Jetpack Compose", "Flutter", "Kotlin Multiplatform", "Mobile Security", "CI/CD"],
+        "knowsLanguage": ["ar", "en"],
+        "sameAs": [
+            "https://www.linkedin.com/in/amermahsoub/",
+            "https://github.com/amermahsoub"
+        ]
+    }
+    </script>
+
+    <!-- Apply saved theme before first paint to avoid a flash -->
+    <script>
+        try {
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
-    <section class="hero">
-        <!-- Video should be the first element (lowest layer) -->
-        <video autoplay muted loop id="bg-video">
-            <source src="images/video_hero.mp4" type="video/mp4">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="site-nav" aria-label="Primary">
+        <div class="nav-inner">
+            <a class="nav-brand" href="#top">Amer Mahsoub</a>
+            <ul class="nav-links">
+                <li class="nav-optional"><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+                <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <header id="top" class="hero">
+        <video id="bg-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+            <source src="images/hero.mp4" type="video/mp4">
         </video>
-        <!-- Overlays next -->
-        <div class="video-overlay"></div>
-        <div class="overlay"></div>
-        <!-- Content on top -->
+        <div class="hero-overlay"></div>
         <div class="hero-content">
+            <p class="availability"><span class="availability-dot" aria-hidden="true"></span> Open to remote, hybrid &amp; relocation</p>
             <h1>Amer Mahsoub</h1>
-            <h2>Senior Mobile Engineer — Android, Kotlin &amp; Flutter</h2>
+            <p class="hero-subtitle">Senior Mobile Engineer — Android, Kotlin &amp; Flutter</p>
+            <p class="hero-tagline">I build and scale production Android apps — modular architecture, Flutter add-to-app, mobile security, and release automation.</p>
             <div class="hero-buttons">
-                <a href="#profile-section" class="hero-btn primary-btn">About Me</a>
-                <a href="#contact" class="hero-btn secondary-btn">Contact</a>
+                <a href="#work" class="btn btn-primary">See my work</a>
+                <a href="files/Amer_Mahsoub_CV.pdf" class="btn btn-light" download>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    Download CV
+                </a>
+                <a href="#contact" class="btn btn-ghost">Contact</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <div id="profile-section" class="container">
-        <div   class="profile">
-            <div class="profile-img"><img src="images/profile_pic.jpg"></div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/amermahsoub/" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/amermahsoub" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    <span>GitHub</span>
-                </a>
-            </div>
-            <div class="contact-info">
+    <main id="main" class="container">
+        <div class="print-only">
+            <h1>Amer Mahsoub</h1>
+            <p>Senior Mobile Engineer — Android, Kotlin &amp; Flutter · amermahsoub.me</p>
+        </div>
+
+        <div class="profile">
+            <picture>
+                <source srcset="images/profile_pic.webp" type="image/webp">
+                <img class="profile-img" src="images/profile_pic_240.jpg" alt="Portrait of Amer Mahsoub" width="120" height="120">
+            </picture>
+            <ul class="social-links">
+                <li>
+                    <a href="https://www.linkedin.com/in/amermahsoub/" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/amermahsoub" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                </li>
+            </ul>
+            <address class="contact-info">
                 <div>Cairo, Egypt</div>
-                <div>amer.mahsoub1@gmail.com</div>
-                <div>+201016943505</div>
-            </div>
+                <div><a href="mailto:amer.mahsoub1@gmail.com">amer.mahsoub1@gmail.com</a></div>
+                <div><a href="tel:+201016943505">+20 101 694 3505</a></div>
+            </address>
         </div>
 
-        <div id="about" class="section">
-            <h2 class="section-title">About</h2>
+        <section id="about" class="section" aria-labelledby="about-title">
+            <h2 id="about-title" class="section-title">About</h2>
             <p>
                 Senior Android Engineer with 7+ years building and scaling production Android applications across transportation, fintech-adjacent, and e-commerce domains. Strong in Kotlin, Jetpack Compose, multi-module Gradle (Kotlin DSL) architecture, mobile security hardening (SSL pinning, root detection, Frida anti-debugging), and CI/CD automation.
             </p>
             <p>
                 Hands-on with Flutter for cross-platform delivery, including production add-to-app integration into native Android. Working knowledge of Kotlin Multiplatform (KMP) and familiarity with iOS development. Comfortable owning architecture decisions, refactoring legacy codebases, and mentoring engineers.
             </p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Experience</h2>
+        <section id="work" class="section" aria-labelledby="work-title">
+            <h2 id="work-title" class="section-title">Selected Work</h2>
+
+            <div class="app-grid">
+                <article class="app-card">
+                    <div class="app-card-head">
+                        <div class="app-icon transflo" aria-hidden="true">TF</div>
+                        <div>
+                            <h3>TRANSFLO Mobile+</h3>
+                            <div class="app-meta">Pegasus TransTech · Oct 2023 – Present</div>
+                        </div>
+                    </div>
+                    <ul class="app-stats" aria-label="Highlights">
+                        <li>500K+ downloads</li>
+                        <li>Kotlin</li>
+                        <li>Flutter add-to-app</li>
+                    </ul>
+                    <p>Flagship B2B app for US truck drivers covering document scanning, load management, ELD (Electronic Logging Device) integration, and trucking-optimized navigation.</p>
+                    <div class="app-links">
+                        <a class="play-link" href="https://play.google.com/store/search?q=TRANSFLO%20Mobile%2B&amp;c=apps" target="_blank" rel="noopener">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.5v19l10-9.5L4 2.5zm11.4 10.8L6.6 21.6l11.6-6.6-2.8-1.7zm0-2.6 2.8-1.7L6.6 2.4l8.8 8.3zm4.2.1L22 12l-2.4 1.2-3-1.2 3-1.2z"/></svg>
+                            Google Play
+                        </a>
+                        <a class="text-link" href="case-studies/flutter-add-to-app.html">Read the case study →</a>
+                    </div>
+                </article>
+
+                <article class="app-card">
+                    <div class="app-card-head">
+                        <div class="app-icon mywe" aria-hidden="true">WE</div>
+                        <div>
+                            <h3>My WE</h3>
+                            <div class="app-meta">Telecom Egypt · via SEGMATEK · 2020 – 2021</div>
+                        </div>
+                    </div>
+                    <ul class="app-stats" aria-label="Highlights">
+                        <li>10M+ downloads</li>
+                        <li>Android</li>
+                        <li>Consumer scale</li>
+                    </ul>
+                    <p>National consumer app for managing mobile and home internet accounts, billing, services, and customer support across Egypt. Role: feature development, bug fixes, and maintenance.</p>
+                    <div class="app-links">
+                        <a class="play-link" href="https://play.google.com/store/search?q=My%20WE%20Telecom%20Egypt&amp;c=apps" target="_blank" rel="noopener">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.5v19l10-9.5L4 2.5zm11.4 10.8L6.6 21.6l11.6-6.6-2.8-1.7zm0-2.6 2.8-1.7L6.6 2.4l8.8 8.3zm4.2.1L22 12l-2.4 1.2-3-1.2 3-1.2z"/></svg>
+                            Google Play
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <a class="case-card no-print" href="case-studies/flutter-add-to-app.html">
+                <span class="case-kicker">Case study</span>
+                <h3>Shipping Flutter inside a native Android app — without a rewrite</h3>
+                <p>How the TRANSFLO Mobile+ team embedded Flutter features in an existing Kotlin app: channel design, deep-link routing, and offline action sync.</p>
+                <span class="case-cta">Read the case study →</span>
+            </a>
+        </section>
+
+        <section id="experience" class="section" aria-labelledby="experience-title">
+            <h2 id="experience-title" class="section-title">Experience</h2>
 
             <div class="experience-item">
                 <div class="experience-header">
@@ -177,171 +327,137 @@
                     <li>Led engineer onboarding, contributed to legacy refactoring and feature development, and ran internal upskilling programs across multiple teams.</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Apps Shipped</h2>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-company">TRANSFLO Mobile+</div>
-                        <div class="experience-title">Pegasus TransTech — 500K+ downloads</div>
-                    </div>
-                    <div>
-                        <div class="experience-date">Senior Android Engineer · Oct 2023 – Present</div>
-                    </div>
-                </div>
-                <p class="experience-description">
-                    Flagship B2B mobile app for US truck drivers covering document scanning, load management, ELD (Electronic Logging Device) integration, and trucking-optimized navigation.
-                </p>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-company">My WE</div>
-                        <div class="experience-title">Telecom Egypt — 10M+ downloads</div>
-                    </div>
-                    <div>
-                        <div class="experience-date">SEGMATEK · 2020 – 2021</div>
-                    </div>
-                </div>
-                <p class="experience-description">
-                    National consumer mobile app for managing mobile and home internet accounts, billing, services, and customer support across Egypt. Role: feature development, bug fixes, and maintenance.
-                </p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Skills</h2>
+        <section id="skills" class="section" aria-labelledby="skills-title">
+            <h2 id="skills-title" class="section-title">Skills</h2>
 
             <div class="skill-category">
                 <h3>Languages</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Kotlin</div>
-                    <div class="skill-item">Java</div>
-                    <div class="skill-item">Dart</div>
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">PHP</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">Kotlin</li>
+                    <li class="skill-item">Java</li>
+                    <li class="skill-item">Dart</li>
+                    <li class="skill-item">JavaScript</li>
+                    <li class="skill-item">PHP</li>
+                </ul>
             </div>
 
             <div class="skill-category">
                 <h3>Android</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Jetpack Compose</div>
-                    <div class="skill-item">Android SDK</div>
-                    <div class="skill-item">Navigation</div>
-                    <div class="skill-item">Room</div>
-                    <div class="skill-item">DataStore</div>
-                    <div class="skill-item">WorkManager</div>
-                    <div class="skill-item">Coroutines</div>
-                    <div class="skill-item">Flow</div>
-                    <div class="skill-item">ViewModel</div>
-                    <div class="skill-item">LiveData</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">Jetpack Compose</li>
+                    <li class="skill-item">Android SDK</li>
+                    <li class="skill-item">Navigation</li>
+                    <li class="skill-item">Room</li>
+                    <li class="skill-item">DataStore</li>
+                    <li class="skill-item">WorkManager</li>
+                    <li class="skill-item">Coroutines</li>
+                    <li class="skill-item">Flow</li>
+                    <li class="skill-item">ViewModel</li>
+                    <li class="skill-item">LiveData</li>
+                </ul>
             </div>
 
             <div class="skill-category">
                 <h3>Architecture</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Clean Architecture</div>
-                    <div class="skill-item">MVVM</div>
-                    <div class="skill-item">MVI</div>
-                    <div class="skill-item">MVP</div>
-                    <div class="skill-item">Modularization</div>
-                    <div class="skill-item">Hilt</div>
-                    <div class="skill-item">Dagger</div>
-                    <div class="skill-item">Repository Pattern</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">Clean Architecture</li>
+                    <li class="skill-item">MVVM</li>
+                    <li class="skill-item">MVI</li>
+                    <li class="skill-item">MVP</li>
+                    <li class="skill-item">Modularization</li>
+                    <li class="skill-item">Hilt</li>
+                    <li class="skill-item">Dagger</li>
+                    <li class="skill-item">Repository Pattern</li>
+                </ul>
             </div>
 
             <div class="skill-category">
                 <h3>Mobile Security</h3>
-                <div class="skills-list">
-                    <div class="skill-item">SSL / Certificate Pinning</div>
-                    <div class="skill-item">Root &amp; Emulator Detection</div>
-                    <div class="skill-item">Frida Anti-Debugging</div>
-                    <div class="skill-item">ProGuard / R8</div>
-                    <div class="skill-item">OWASP MASVS</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">SSL / Certificate Pinning</li>
+                    <li class="skill-item">Root &amp; Emulator Detection</li>
+                    <li class="skill-item">Frida Anti-Debugging</li>
+                    <li class="skill-item">ProGuard / R8</li>
+                    <li class="skill-item">OWASP MASVS</li>
+                </ul>
             </div>
 
             <div class="skill-category">
                 <h3>Performance &amp; Observability</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Crashlytics</div>
-                    <div class="skill-item">Android Studio Profiler</div>
-                    <div class="skill-item">LeakCanary</div>
-                    <div class="skill-item">Baseline Profiles</div>
-                    <div class="skill-item">Memory Optimization</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">Crashlytics</li>
+                    <li class="skill-item">Android Studio Profiler</li>
+                    <li class="skill-item">LeakCanary</li>
+                    <li class="skill-item">Baseline Profiles</li>
+                    <li class="skill-item">Memory Optimization</li>
+                </ul>
             </div>
 
             <div class="skill-category">
                 <h3>Build &amp; Distribution</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Gradle (Kotlin DSL)</div>
-                    <div class="skill-item">Maven Publishing</div>
-                    <div class="skill-item">Azure DevOps Artifacts</div>
-                    <div class="skill-item">AAR Distribution</div>
-                    <div class="skill-item">Fastlane</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">Gradle (Kotlin DSL)</li>
+                    <li class="skill-item">Maven Publishing</li>
+                    <li class="skill-item">Azure DevOps Artifacts</li>
+                    <li class="skill-item">AAR Distribution</li>
+                    <li class="skill-item">Fastlane</li>
+                </ul>
             </div>
 
             <div class="skill-category">
                 <h3>CI/CD &amp; DevOps</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Azure DevOps</div>
-                    <div class="skill-item">GitHub Actions</div>
-                    <div class="skill-item">CircleCI</div>
-                    <div class="skill-item">Jenkins</div>
-                    <div class="skill-item">Fastlane</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">Azure DevOps</li>
+                    <li class="skill-item">GitHub Actions</li>
+                    <li class="skill-item">CircleCI</li>
+                    <li class="skill-item">Jenkins</li>
+                    <li class="skill-item">Fastlane</li>
+                </ul>
             </div>
 
             <div class="skill-category">
                 <h3>Testing</h3>
-                <div class="skills-list">
-                    <div class="skill-item">JUnit</div>
-                    <div class="skill-item">Espresso</div>
-                    <div class="skill-item">Mockito</div>
-                    <div class="skill-item">Mockk</div>
-                    <div class="skill-item">Robolectric</div>
-                    <div class="skill-item">UI Testing</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">JUnit</li>
+                    <li class="skill-item">Espresso</li>
+                    <li class="skill-item">Mockito</li>
+                    <li class="skill-item">Mockk</li>
+                    <li class="skill-item">Robolectric</li>
+                    <li class="skill-item">UI Testing</li>
+                </ul>
             </div>
 
             <div class="skill-category">
                 <h3>Cross-Platform</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Flutter</div>
-                    <div class="skill-item">Flutter Add-to-App</div>
-                    <div class="skill-item">MethodChannel / PlatformChannel</div>
-                    <div class="skill-item">Kotlin Multiplatform (KMP)</div>
-                    <div class="skill-item">Riverpod</div>
-                    <div class="skill-item">Provider</div>
-                    <div class="skill-item">ObjectBox</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">Flutter</li>
+                    <li class="skill-item">Flutter Add-to-App</li>
+                    <li class="skill-item">MethodChannel / PlatformChannel</li>
+                    <li class="skill-item">Kotlin Multiplatform (KMP)</li>
+                    <li class="skill-item">Riverpod</li>
+                    <li class="skill-item">Provider</li>
+                    <li class="skill-item">ObjectBox</li>
+                </ul>
             </div>
 
             <div class="skill-category">
                 <h3>Tools</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Git</div>
-                    <div class="skill-item">JIRA</div>
-                    <div class="skill-item">Swagger</div>
-                    <div class="skill-item">Ktlint</div>
-                    <div class="skill-item">Detekt</div>
-                    <div class="skill-item">Android Studio</div>
-                    <div class="skill-item">Postman</div>
-                </div>
+                <ul class="skills-list">
+                    <li class="skill-item">Git</li>
+                    <li class="skill-item">JIRA</li>
+                    <li class="skill-item">Swagger</li>
+                    <li class="skill-item">Ktlint</li>
+                    <li class="skill-item">Detekt</li>
+                    <li class="skill-item">Android Studio</li>
+                    <li class="skill-item">Postman</li>
+                </ul>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Education</h2>
+        <section class="section" aria-labelledby="education-title">
+            <h2 id="education-title" class="section-title">Education</h2>
             <div class="education-item">
                 <div class="experience-header">
                     <div>
@@ -351,57 +467,54 @@
                     <div class="experience-date">2012 – 2016</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Languages</h2>
-            <div class="languages-list">
-                <div class="language-item">
+        <section class="section" aria-labelledby="languages-title">
+            <h2 id="languages-title" class="section-title">Languages</h2>
+            <ul class="languages-list">
+                <li class="language-item">
                     <div class="language-name">Arabic</div>
                     <div class="language-level">Native</div>
-                </div>
-                <div class="language-item">
+                </li>
+                <li class="language-item">
                     <div class="language-name">English</div>
                     <div class="language-level">Fluent</div>
-                </div>
-            </div>
-        </div>
+                </li>
+            </ul>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Availability</h2>
+        <section class="section" aria-labelledby="availability-title">
+            <h2 id="availability-title" class="section-title">Availability</h2>
             <p>Open to remote (any timezone), hybrid in Egypt, or relocation.</p>
-        </div>
+        </section>
 
-        <div id="contact" class="section">
-            <h2 class="section-title">Contact Me</h2>
+        <section id="contact" class="section no-print" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="section-title">Contact Me</h2>
             <div class="profile">
-                <div class="contact-info">
+                <p>Hiring for a senior Android or Flutter role? I'd love to hear about it.</p>
+                <div class="contact-actions">
+                    <a class="btn btn-primary" href="mailto:amer.mahsoub1@gmail.com">Email me</a>
+                    <a class="btn btn-outline" href="files/Amer_Mahsoub_CV.pdf" download>Download CV (PDF)</a>
+                </div>
+                <address class="contact-info">
                     <div>Email: <a href="mailto:amer.mahsoub1@gmail.com">amer.mahsoub1@gmail.com</a></div>
-                    <div>Phone: +201016943505</div>
+                    <div>Phone: <a href="tel:+201016943505">+20 101 694 3505</a></div>
                     <div>Location: Cairo, Egypt</div>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/amermahsoub/" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/amermahsoub" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        <span>GitHub</span>
-                    </a>
-                </div>
+                </address>
+                <ul class="social-links">
+                    <li><a href="https://www.linkedin.com/in/amermahsoub/" target="_blank" rel="noopener"><span>LinkedIn</span></a></li>
+                    <li><a href="https://github.com/amermahsoub" target="_blank" rel="noopener"><span>GitHub</span></a></li>
+                </ul>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
             <p>&copy; 2026 Amer Elsayed Mahsoub</p>
         </div>
     </footer>
+
+    <script src="js/main.js" defer></script>
 </body>
 </html>
